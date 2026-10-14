@@ -420,7 +420,6 @@ body {
 
 /* ============================================================
    7. AVATAR WITH PICTURE
-   - Uses high-quality rendering for small images
    ============================================================ */
 .avatar-wrapper {
   position: relative;
@@ -475,12 +474,8 @@ body {
   object-fit: cover;
   object-position: center;
   display: block;
-  /* ✅ No image-rendering tricks — those hurt photos!
-     Use auto (default) so browsers render smoothly. */
   image-rendering: auto;
-  /* Smooth upscaling for small sources */
   -ms-interpolation-mode: bicubic;
-  /* Force GPU rendering for smoother scaling */
   transform: translateZ(0);
   backface-visibility: hidden;
 }
@@ -700,9 +695,6 @@ body {
 .quick-btn:hover::before { opacity: 0.18; }
 .quick-btn:active { transform: translateY(-1px) scale(0.97); }
 
-/* ============================================================
-   UNIFIED ICON STYLE (same shape + glow for all)
-   ============================================================ */
 .quick-icon {
   display: grid;
   place-items: center;
@@ -729,7 +721,6 @@ body {
   stroke: currentColor;
 }
 
-/* Solid icons (WhatsApp) get fill instead of stroke */
 .quick-icon svg.solid {
   fill: currentColor;
   stroke: none;
@@ -1002,7 +993,6 @@ body {
   stroke: currentColor;
 }
 
-/* Solid icons (TikTok, Telegram) */
 .social-icon svg.solid {
   fill: currentColor;
   stroke: none;
@@ -1154,8 +1144,6 @@ body {
 /* ============================================================
    17. SCROLLBAR
    ============================================================ */
-
-/* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -1183,7 +1171,6 @@ body {
   50% { background-position: 0% 100%; }
 }
 
-/* Firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: #8b5cf6 var(--bg);
@@ -1268,7 +1255,6 @@ body {
   <div class="avatar-wrapper">
     <div class="avatar-ring"></div>
     <div class="avatar-inner">
-      <!-- ✅ Replace "Me.PNG" with your photo filename -->
       <img
         src="Me.PNG"
         alt="Falxad"
@@ -1391,31 +1377,31 @@ body {
     </a>
 
     <!-- Save Contact (vCard) -->
-<a href="#" id="vcardBtn" class="link-card">
-  <div class="link-card-glow" style="background: linear-gradient(135deg, #10b981, #059669);"></div>
-  <div class="link-card-inner">
-    <div class="link-card-glare"></div>
-    <div class="link-card-sheen"></div>
-    <div class="link-card-content">
-      <div class="link-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
-        <svg viewBox="0 0 24 24">
-          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-          <circle cx="9" cy="7" r="4"/>
-          <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
-          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-        </svg>
+    <a href="#" id="vcardBtn" class="link-card">
+      <div class="link-card-glow" style="background: linear-gradient(135deg, #10b981, #059669);"></div>
+      <div class="link-card-inner">
+        <div class="link-card-glare"></div>
+        <div class="link-card-sheen"></div>
+        <div class="link-card-content">
+          <div class="link-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
+            <svg viewBox="0 0 24 24">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <div class="link-text">
+            <p class="link-title">Save My Contact</p>
+            <p class="link-subtitle">Add me to your phone contacts</p>
+          </div>
+          <svg class="link-arrow" viewBox="0 0 24 24">
+            <path d="M7 17 17 7" />
+            <path d="M7 7h10v10" />
+          </svg>
+        </div>
       </div>
-      <div class="link-text">
-        <p class="link-title">Save My Contact</p>
-        <p class="link-subtitle">Add me to your phone contacts</p>
-      </div>
-      <svg class="link-arrow" viewBox="0 0 24 24">
-        <path d="M7 17 17 7" />
-        <path d="M7 7h10v10" />
-      </svg>
-    </div>
-  </div>
-</a>
+    </a>
 
     <!-- YouTube -->
     <a href="https://www.youtube.com/@osmosis" target="_blank" rel="noopener noreferrer" class="link-card">
@@ -1449,7 +1435,7 @@ body {
   </div>
 
   <div class="social-grid">
-    <!-- TikTok (fixed color: #fe2c55 + dark shade) -->
+    <!-- TikTok -->
     <a href="https://tiktok.com/@a6267816" target="_blank" rel="noopener noreferrer" class="social-card" style="--brand-c:#fe2c55;">
       <span class="social-card-glow"></span>
       <span class="social-icon">
@@ -1459,7 +1445,8 @@ body {
       </span>
       <span class="social-label">TikTok</span>
     </a>
-    
+
+    <!-- Telegram -->
     <a href="https://t.me/Marii989s" target="_blank" rel="noopener noreferrer" class="social-card" style="--brand-c:#229ed9;">
       <span class="social-card-glow"></span>
       <span class="social-icon">
@@ -1469,6 +1456,7 @@ body {
       </span>
       <span class="social-label">Telegram</span>
     </a>
+
     <!-- Instagram -->
     <a href="https://instagram.com/Su.u49" target="_blank" rel="noopener noreferrer" class="social-card" style="--brand-c:#e1306c;">
       <span class="social-card-glow"></span>
@@ -1481,9 +1469,6 @@ body {
       </span>
       <span class="social-label">Instagram</span>
     </a>
-
-    <!-- Telegram -->
-
   </div>
 
   <!-- Copy Page Link -->
@@ -1610,7 +1595,8 @@ copyBtn.addEventListener('click', (e) => {
   copyBtn.appendChild(ripple);
   setTimeout(() => ripple.remove(), 650);
 
-  const url = window.location.href;
+  // ✅ Fixed URL — always copies this link
+  const url = 'https://falxad.vercel.app';
   const done = () => showToast('Link copied!');
 
   if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -1793,11 +1779,10 @@ applyTheme(currentTheme);
 /* ============================================================
    9. DOWNLOAD vCARD (Save Contact)
    ============================================================ */
-   (function setupVCard() {
+(function setupVCard() {
   const vcardBtn = document.getElementById('vcardBtn');
   if (!vcardBtn) return;
 
-  // ✏️ عدّل بياناتك هون
   const contact = {
     firstName: 'Falxad',
     lastName: 'Mohamed',
@@ -1805,13 +1790,12 @@ applyTheme(currentTheme);
     email: 'marianuu453@gmail.com',
     org: 'Somali National University',
     title: 'Medical Student',
-    website: window.location.href
+    website: 'https://falxad.vercel.app'
   };
 
   vcardBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
-    // بناء محتوى ملف vCard
     const vcard = [
       'BEGIN:VCARD',
       'VERSION:3.0',
@@ -1825,7 +1809,6 @@ applyTheme(currentTheme);
       'END:VCARD'
     ].join('\r\n');
 
-    // إنشاء ملف Blob وتحميله
     const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
@@ -1835,14 +1818,11 @@ applyTheme(currentTheme);
     link.click();
     document.body.removeChild(link);
 
-    // تنظيف
     setTimeout(() => URL.revokeObjectURL(url), 1000);
 
-    // إظهار toast تأكيد
     showToast('Contact downloaded!');
   });
 })();
-
 </script>
 
 </body>
