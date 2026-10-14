@@ -1,0 +1,1849 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#05050a" />
+<title>Falxad — Links</title>
+<link rel="icon" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   1. THEME VARIABLES
+   ============================================================ */
+:root,
+[data-theme="dark"] {
+  --bg: #05050a;
+  --bg-2: #0b0b14;
+  --glass: rgba(255, 255, 255, 0.04);
+  --glass-hover: rgba(255, 255, 255, 0.07);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.2);
+  --text: #ffffff;
+  --text-soft: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.45);
+  --text-dim: rgba(255, 255, 255, 0.25);
+  --shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.8);
+  --blob-opacity: 0.6;
+  --grid-color: #fff;
+  --grid-opacity: 0.07;
+  --phone-frame: rgba(255, 255, 255, 0.12);
+  --phone-screen: rgba(255, 255, 255, 0.02);
+  --vignette: #05050a;
+}
+
+[data-theme="light"] {
+  --bg: #f4f4f8;
+  --bg-2: #e9e9f0;
+  --glass: rgba(255, 255, 255, 0.7);
+  --glass-hover: rgba(255, 255, 255, 0.9);
+  --border: rgba(0, 0, 0, 0.08);
+  --border-hover: rgba(0, 0, 0, 0.2);
+  --text: #0a0a14;
+  --text-soft: rgba(10, 10, 20, 0.72);
+  --text-muted: rgba(10, 10, 20, 0.5);
+  --text-dim: rgba(10, 10, 20, 0.3);
+  --shadow: 0 20px 40px -20px rgba(80, 80, 120, 0.35);
+  --blob-opacity: 0.4;
+  --grid-color: #000;
+  --grid-opacity: 0.04;
+  --phone-frame: rgba(0, 0, 0, 0.1);
+  --phone-screen: rgba(255, 255, 255, 0.55);
+  --vignette: #f4f4f8;
+}
+
+/* ============================================================
+   2. RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4.5rem 1.25rem 3rem;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.4);
+}
+
+/* ============================================================
+   3. AURORA BACKGROUND
+   ============================================================ */
+.aurora-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+  background: var(--bg);
+  pointer-events: none;
+  transition: background 0.5s ease;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: var(--blob-opacity);
+  will-change: transform;
+  transition: opacity 0.6s ease;
+}
+
+.blob-1 {
+  width: 560px; height: 560px;
+  background: radial-gradient(circle, #7c3aed 0%, transparent 70%);
+  top: -10%; left: -10%;
+  animation: blobFloat1 20s ease-in-out infinite;
+}
+.blob-2 {
+  width: 480px; height: 480px;
+  background: radial-gradient(circle, #0891b2 0%, transparent 70%);
+  top: 25%; right: -10%;
+  animation: blobFloat2 26s ease-in-out infinite;
+  animation-delay: -4s;
+}
+.blob-3 {
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, #db2777 0%, transparent 70%);
+  bottom: -5%; left: -8%;
+  animation: blobFloat3 24s ease-in-out infinite;
+  animation-delay: -8s;
+}
+.blob-4 {
+  width: 380px; height: 380px;
+  background: radial-gradient(circle, #4f46e5 0%, transparent 70%);
+  bottom: 10%; right: 0;
+  animation: blobFloat1 30s ease-in-out infinite;
+  animation-delay: -12s;
+}
+
+@keyframes blobFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(60px, -50px) scale(1.15); }
+  50% { transform: translate(-40px, 40px) scale(0.95); }
+  75% { transform: translate(30px, -20px) scale(1.08); }
+}
+@keyframes blobFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-70px, 60px) scale(1.1); }
+  66% { transform: translate(50px, -40px) scale(0.92); }
+}
+@keyframes blobFloat3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(80px, -60px) scale(1.12); }
+}
+
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: var(--grid-opacity);
+  background-image:
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 30%, black 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse at 50% 30%, black 20%, transparent 75%);
+  transition: opacity 0.5s ease;
+}
+
+.noise-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 30%, var(--vignette) 100%);
+  transition: background 0.5s ease;
+}
+
+.particles {
+  position: absolute;
+  inset: 0;
+}
+.particle {
+  position: absolute;
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.6);
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.8);
+  animation: particleRise linear infinite;
+}
+@keyframes particleRise {
+  0% { transform: translateY(100vh) scale(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+
+/* ============================================================
+   4. TOP CORNER CONTROLS
+   ============================================================ */
+.top-controls {
+  position: fixed;
+  top: max(0.75rem, env(safe-area-inset-top));
+  right: max(0.75rem, env(safe-area-inset-right));
+  z-index: 50;
+  display: flex;
+  gap: 0.4rem;
+  animation: slideIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ctrl-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  border: 1px solid var(--border);
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: var(--text-soft);
+  font-family: inherit;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: var(--shadow);
+}
+
+.ctrl-btn:hover {
+  color: var(--text);
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+
+.ctrl-btn:active { transform: translateY(0) scale(0.94); }
+
+.ctrl-btn svg {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ctrl-btn:hover svg { transform: rotate(20deg) scale(1.1); }
+
+/* Static EN badge */
+.lang-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  border: 1px solid var(--border);
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: var(--text-soft);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  box-shadow: var(--shadow);
+  user-select: none;
+  cursor: default;
+}
+
+/* ============================================================
+   5. CONTAINER
+   ============================================================ */
+.container {
+  width: 100%;
+  max-width: 440px;
+}
+
+/* ============================================================
+   6. PHONE MOCKUP ANIMATION
+   ============================================================ */
+.phone-stage {
+  position: relative;
+  width: 240px;
+  height: 190px;
+  margin: 0 auto 0.5rem;
+  perspective: 1000px;
+  animation: phoneEnter 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes phoneEnter {
+  from { opacity: 0; transform: translateY(30px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.phone-mockup {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 105px;
+  height: 180px;
+  border-radius: 20px;
+  border: 1.5px solid var(--phone-frame);
+  background: var(--phone-screen);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transform: translate(-50%, -50%) rotate(-8deg);
+  box-shadow:
+    0 30px 50px -20px rgba(0, 0, 0, 0.5),
+    inset 0 0 20px rgba(139, 92, 246, 0.15);
+  animation: phoneFloat 6s ease-in-out infinite;
+  overflow: hidden;
+  transition: background 0.5s ease, border-color 0.5s ease;
+}
+
+.phone-mockup::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--phone-frame);
+}
+
+.phone-mockup::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.18), transparent 40%, rgba(6, 182, 212, 0.18));
+  animation: phoneShimmer 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes phoneFloat {
+  0%, 100% { transform: translate(-50%, -50%) rotate(-8deg) translateY(0); }
+  50% { transform: translate(-50%, -50%) rotate(-8deg) translateY(-12px); }
+}
+
+@keyframes phoneShimmer {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+
+.phone-mockup-2 {
+  width: 95px;
+  height: 165px;
+  transform: translate(-50%, -50%) rotate(10deg) translateX(58px);
+  animation: phoneFloat2 7s ease-in-out infinite;
+  animation-delay: -2s;
+  opacity: 0.6;
+}
+
+@keyframes phoneFloat2 {
+  0%, 100% { transform: translate(-50%, -50%) rotate(10deg) translateX(58px) translateY(0); }
+  50% { transform: translate(-50%, -50%) rotate(10deg) translateX(58px) translateY(10px); }
+}
+
+.mini-profile {
+  position: absolute;
+  inset: 20px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 2;
+}
+
+.mini-avatar {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+  margin: 0 auto;
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.6);
+}
+
+.mini-line {
+  height: 5px;
+  border-radius: 999px;
+  background: var(--phone-frame);
+}
+.mini-line.w-70 { width: 70%; margin: 0 auto; }
+.mini-line.w-50 { width: 50%; margin: 0 auto; }
+
+.mini-card {
+  height: 17px;
+  border-radius: 6px;
+  background: var(--phone-frame);
+  margin-top: 3px;
+  position: relative;
+  overflow: hidden;
+}
+.mini-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transform: translateX(-100%);
+  animation: miniShine 2.5s ease-in-out infinite;
+}
+.mini-card:nth-child(5)::after { animation-delay: 0.3s; }
+.mini-card:nth-child(6)::after { animation-delay: 0.6s; }
+.mini-card:nth-child(7)::after { animation-delay: 0.9s; }
+
+@keyframes miniShine {
+  0% { transform: translateX(-100%); }
+  50%, 100% { transform: translateX(100%); }
+}
+
+/* ============================================================
+   7. AVATAR WITH PICTURE
+   - Uses high-quality rendering for small images
+   ============================================================ */
+.avatar-wrapper {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: -20px auto 1.5rem;
+  z-index: 2;
+  animation: avatarEnter 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+@keyframes avatarEnter {
+  from { opacity: 0; transform: scale(0.7); filter: blur(10px); }
+  to { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+
+.avatar-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #8b5cf6, #06b6d4, #ec4899, #f59e0b, #8b5cf6);
+  opacity: 0.75;
+  filter: blur(6px);
+  animation: spinSlow 8s linear infinite;
+  z-index: -1;
+}
+
+@keyframes spinSlow { to { transform: rotate(360deg); } }
+
+.avatar-inner {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--bg-2);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+  animation: avatarPulse 3s ease-in-out infinite;
+  transition: border-color 0.5s ease, background 0.5s ease;
+}
+
+@keyframes avatarPulse {
+  0%, 100% { box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 0 0 rgba(139, 92, 246, 0.4); }
+  50% { box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 0 14px rgba(139, 92, 246, 0); }
+}
+
+.avatar-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  /* ✅ No image-rendering tricks — those hurt photos!
+     Use auto (default) so browsers render smoothly. */
+  image-rendering: auto;
+  /* Smooth upscaling for small sources */
+  -ms-interpolation-mode: bicubic;
+  /* Force GPU rendering for smoother scaling */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.avatar-initials {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #a78bfa, #22d3ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  pointer-events: none;
+}
+
+/* ============================================================
+   8. NAME + DESCRIPTION
+   ============================================================ */
+.name-section {
+  text-align: center;
+  animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+}
+
+.name-gradient {
+  background: linear-gradient(to right, #a78bfa, #e879f9, #22d3ee);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 6s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.description {
+  max-width: 320px;
+  margin: 0.65rem auto 0;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-soft);
+}
+
+/* ============================================================
+   9. EMAIL PILL
+   ============================================================ */
+.email-pill-wrapper {
+  margin-top: 1.1rem;
+  display: flex;
+  justify-content: center;
+  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+}
+
+.email-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  font-size: 12.5px;
+  color: var(--text-soft);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  box-shadow: var(--shadow);
+}
+
+.email-pill:hover {
+  border-color: var(--border-hover);
+  color: var(--text);
+}
+
+.status-dot {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  display: flex;
+}
+
+.status-dot .ping {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #34d399;
+  opacity: 0.75;
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.status-dot .dot {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #34d399;
+}
+
+@keyframes ping {
+  75%, 100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* ============================================================
+   10. MARQUEE
+   ============================================================ */
+.marquee-container {
+  position: relative;
+  margin: 1.75rem 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  animation: fadeUp 0.8s ease 0.5s both;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  padding-right: 24px;
+  font-size: 10.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--text-dim);
+}
+
+.marquee-item .dot {
+  margin-left: 24px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(167, 139, 250, 0.5);
+}
+
+/* ============================================================
+   11. QUICK CONTACT ACTIONS
+   ============================================================ */
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.6s both;
+}
+
+.quick-btn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.85rem 0.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  text-decoration: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.quick-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--btn-c1), var(--btn-c2));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.quick-btn:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-hover);
+  box-shadow: 0 15px 30px -12px var(--btn-c1);
+}
+
+.quick-btn:hover::before { opacity: 0.18; }
+.quick-btn:active { transform: translateY(-1px) scale(0.97); }
+
+/* ============================================================
+   UNIFIED ICON STYLE (same shape + glow for all)
+   ============================================================ */
+.quick-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--btn-c1), var(--btn-c2));
+  color: #fff;
+  box-shadow: 0 8px 16px -6px var(--btn-c1);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.quick-btn:hover .quick-icon {
+  transform: scale(1.12) rotate(-6deg);
+}
+
+.quick-icon svg {
+  width: 19px;
+  height: 19px;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  stroke: currentColor;
+}
+
+/* Solid icons (WhatsApp) get fill instead of stroke */
+.quick-icon svg.solid {
+  fill: currentColor;
+  stroke: none;
+}
+
+/* ============================================================
+   12. LINK CARDS
+   ============================================================ */
+.links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.link-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+  animation: cardEnter 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.link-card:nth-child(1) { animation-delay: 0.7s; }
+.link-card:nth-child(2) { animation-delay: 0.78s; }
+.link-card:nth-child(3) { animation-delay: 0.86s; }
+
+@keyframes cardEnter {
+  from { opacity: 0; transform: translateY(22px); filter: blur(6px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+.link-card-glow {
+  position: absolute;
+  inset: -1px;
+  border-radius: 18px;
+  opacity: 0;
+  filter: blur(10px);
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.link-card:hover .link-card-glow { opacity: 0.45; }
+
+.link-card-inner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 17px;
+  border: 1px solid var(--border);
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 14px;
+  transition: all 0.3s ease;
+}
+
+.link-card:hover .link-card-inner {
+  border-color: var(--border-hover);
+  background: var(--glass-hover);
+}
+
+.link-card-glare {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.link-card:hover .link-card-glare { opacity: 1; }
+
+.link-card-sheen {
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.35), transparent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.link-card:hover .link-card-sheen { opacity: 1; }
+
+.link-card-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.link-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  flex-shrink: 0;
+  color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.link-card:hover .link-icon { transform: scale(1.05); }
+
+.link-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  stroke: currentColor;
+}
+
+.link-icon svg.solid {
+  fill: currentColor;
+  stroke: none;
+}
+
+.link-text { min-width: 0; flex: 1; }
+
+.link-title {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.link-subtitle {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.link-arrow {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--text-dim);
+  transition: all 0.3s ease;
+}
+
+.link-card:hover .link-arrow {
+  color: var(--text);
+  transform: translate(2px, -2px);
+}
+
+/* ============================================================
+   13. SOCIALS
+   ============================================================ */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 1.75rem 0 0.9rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  animation: fadeUp 0.8s ease 0.9s both;
+}
+
+.section-title::before,
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border), transparent);
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+}
+
+.social-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0.5rem;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  text-decoration: none;
+  color: var(--text);
+  font-family: inherit;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-style: preserve-3d;
+  animation: cardEnter 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.social-card:nth-child(1) { animation-delay: 0.95s; }
+.social-card:nth-child(2) { animation-delay: 1.03s; }
+.social-card:nth-child(3) { animation-delay: 1.11s; }
+
+.social-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, var(--brand-c), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.social-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-hover);
+  box-shadow: 0 20px 35px -18px var(--brand-c);
+}
+
+.social-card:hover::before { opacity: 0.22; }
+
+.social-card-glow {
+  position: absolute;
+  inset: -1px;
+  border-radius: 18px;
+  background: var(--brand-c);
+  opacity: 0;
+  filter: blur(14px);
+  transition: opacity 0.4s ease;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.social-card:hover .social-card-glow { opacity: 0.55; }
+
+.social-icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  background: var(--brand-c);
+  color: #fff;
+  box-shadow: 0 10px 20px -8px var(--brand-c);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.social-card:hover .social-icon {
+  transform: scale(1.12) rotate(-6deg);
+}
+
+.social-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  stroke: currentColor;
+}
+
+/* Solid icons (TikTok, Telegram) */
+.social-icon svg.solid {
+  fill: currentColor;
+  stroke: none;
+}
+
+.social-label {
+  position: relative;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+/* ============================================================
+   14. COPY LINK BUTTON
+   ============================================================ */
+.copy-wrap {
+  margin-top: 1.5rem;
+  animation: fadeUp 0.8s ease 1.2s both;
+}
+
+.copy-btn {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem 1.25rem;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+
+.copy-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, #8b5cf6, #06b6d4, #ec4899);
+  background-size: 200% 200%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: gradientShift 5s ease infinite;
+}
+
+.copy-btn:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-hover);
+  box-shadow: 0 18px 35px -18px rgba(139, 92, 246, 0.7);
+}
+
+.copy-btn:hover::before { opacity: 0.18; }
+.copy-btn:active { transform: translateY(-1px) scale(0.98); }
+
+.copy-btn > * { position: relative; z-index: 1; }
+
+.copy-btn svg {
+  width: 17px;
+  height: 17px;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  stroke: currentColor;
+  transition: transform 0.4s ease;
+}
+
+.copy-btn:hover svg { transform: rotate(-10deg) scale(1.1); }
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(0);
+  animation: rippleAnim 0.6s ease-out;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes rippleAnim {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* ============================================================
+   15. FOOTER
+   ============================================================ */
+.footer {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: var(--text-dim);
+  animation: fadeUp 0.8s ease 1.3s both;
+}
+
+.footer-heart {
+  display: inline-block;
+  color: #ec4899;
+  animation: heartbeat 1.5s ease infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.25); }
+  50% { transform: scale(1); }
+}
+
+/* ============================================================
+   16. TOAST
+   ============================================================ */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 2rem;
+  transform: translate(-50%, 80px);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 100;
+}
+
+.toast.show {
+  transform: translate(-50%, 0);
+  opacity: 1;
+}
+
+.toast svg { width: 16px; height: 16px; color: #34d399; }
+
+/* ============================================================
+   17. SCROLLBAR
+   ============================================================ */
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+  border-left: 1px solid var(--border);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #8b5cf6, #06b6d4, #ec4899);
+  background-size: 100% 300%;
+  border-radius: 999px;
+  border: 2px solid var(--bg);
+  animation: scrollGlow 3s ease infinite;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #a78bfa, #22d3ee, #f472b6);
+  background-size: 100% 300%;
+}
+
+@keyframes scrollGlow {
+  0%, 100% { background-position: 0% 0%; }
+  50% { background-position: 0% 100%; }
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #8b5cf6 var(--bg);
+}
+
+/* ============================================================
+   18. RESPONSIVE + REDUCED MOTION
+   ============================================================ */
+@media (max-width: 480px) {
+  body { padding: 4rem 1rem 3rem; }
+  .name { font-size: 1.5rem; }
+  .phone-stage { width: 200px; height: 165px; }
+  .phone-mockup { width: 92px; height: 158px; }
+  .phone-mockup-2 { width: 82px; height: 145px; transform: translate(-50%, -50%) rotate(10deg) translateX(48px); }
+  .avatar-wrapper, .avatar-inner { width: 88px; height: 88px; }
+  .avatar-initials { font-size: 28px; }
+  .quick-btn { font-size: 0.68rem; padding: 0.75rem 0.35rem; }
+  .social-label { font-size: 0.7rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== AURORA BACKGROUND ===== -->
+<div class="aurora-bg" aria-hidden="true">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="blob blob-4"></div>
+  <div class="grid-overlay"></div>
+  <div class="noise-overlay"></div>
+  <div class="vignette"></div>
+  <div class="particles" id="particles"></div>
+</div>
+
+<!-- ===== TOP CORNER CONTROLS ===== -->
+<div class="top-controls">
+  <button class="ctrl-btn" id="themeBtn" aria-label="Toggle theme">
+    <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  </button>
+  <div class="lang-badge" aria-label="English">EN</div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="container">
+
+  <!-- Phone Mockup Animation -->
+  <div class="phone-stage" aria-hidden="true">
+    <div class="phone-mockup phone-mockup-2">
+      <div class="mini-profile">
+        <div class="mini-avatar"></div>
+        <div class="mini-line w-70"></div>
+        <div class="mini-line w-50"></div>
+        <div class="mini-card"></div>
+        <div class="mini-card"></div>
+        <div class="mini-card"></div>
+      </div>
+    </div>
+    <div class="phone-mockup">
+      <div class="mini-profile">
+        <div class="mini-avatar"></div>
+        <div class="mini-line w-70"></div>
+        <div class="mini-line w-50"></div>
+        <div class="mini-card"></div>
+        <div class="mini-card"></div>
+        <div class="mini-card"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Avatar with Picture -->
+  <div class="avatar-wrapper">
+    <div class="avatar-ring"></div>
+    <div class="avatar-inner">
+      <!-- ✅ Replace "Me.PNG" with your photo filename -->
+      <img
+        src="Me.PNG"
+        alt="Falxad"
+        onerror="this.style.display='none'; this.nextElementSibling.style.opacity='1';"
+      />
+      <span class="avatar-initials" style="opacity:0;">FLXD</span>
+    </div>
+  </div>
+
+  <!-- Name + Description -->
+  <div class="name-section">
+    <h1 class="name">
+      Falxad <span class="name-gradient">Mohamed</span>
+    </h1>
+    <p class="description">
+      Medical student at Somali National University.
+    </p>
+  </div>
+
+  <!-- Email Pill -->
+  <div class="email-pill-wrapper">
+    <button class="email-pill" id="emailBtn">
+      <span class="status-dot">
+        <span class="ping"></span>
+        <span class="dot"></span>
+      </span>
+      <span id="emailText">Copy My Email</span>
+      <svg id="copyIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.5">
+        <rect x="9" y="9" width="12" height="12" rx="2" />
+        <path d="M5 15V5a2 2 0 0 1 2-2h10" />
+      </svg>
+      <svg id="checkIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+        <path d="M20 6 9 17l-5-5" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Marquee -->
+  <div class="marquee-container">
+    <div class="marquee-track">
+      <span class="marquee-item">Medicine <span class="dot"></span></span>
+      <span class="marquee-item">Anatomy <span class="dot"></span></span>
+      <span class="marquee-item">Physiology <span class="dot"></span></span>
+      <span class="marquee-item">Contact <span class="dot"></span></span>
+      <span class="marquee-item">Medical School <span class="dot"></span></span>
+      <span class="marquee-item">YouTube <span class="dot"></span></span>
+      <span class="marquee-item">Cardiology <span class="dot"></span></span>
+      <span class="marquee-item">Neurology <span class="dot"></span></span>
+      <span class="marquee-item">Medicine <span class="dot"></span></span>
+      <span class="marquee-item">Anatomy <span class="dot"></span></span>
+      <span class="marquee-item">Physiology <span class="dot"></span></span>
+      <span class="marquee-item">Contact <span class="dot"></span></span>
+      <span class="marquee-item">Medical School <span class="dot"></span></span>
+      <span class="marquee-item">YouTube <span class="dot"></span></span>
+      <span class="marquee-item">Cardiology <span class="dot"></span></span>
+      <span class="marquee-item">Neurology <span class="dot"></span></span>
+    </div>
+  </div>
+
+  <!-- Quick Contact Actions -->
+  <div class="quick-actions">
+    <!-- Phone Call -->
+    <a href="tel:+252618968849" class="quick-btn" style="--btn-c1:#22c55e;--btn-c2:#16a34a;">
+      <span class="quick-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </span>
+      <span>Call</span>
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/252618968849" target="_blank" rel="noopener noreferrer" class="quick-btn" style="--btn-c1:#25d366;--btn-c2:#128c7e;">
+      <span class="quick-icon">
+        <svg class="solid" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+        </svg>
+      </span>
+      <span>WhatsApp</span>
+    </a>
+
+    <!-- Gmail -->
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=marianuu453@gmail.com&su=Hello%20Falxad" target="_blank" rel="noopener noreferrer" class="quick-btn" style="--btn-c1:#ea4335;--btn-c2:#c5221f;">
+      <span class="quick-icon">
+        <svg viewBox="0 0 24 24">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m2 7 10 6 10-6"/>
+        </svg>
+      </span>
+      <span>Gmail</span>
+    </a>
+  </div>
+
+  <!-- Link Cards -->
+  <div class="links-list">
+
+    <!-- University Portal -->
+    <a href="https://lms.snu.edu.so" target="_blank" rel="noopener noreferrer" class="link-card">
+      <div class="link-card-glow" style="background: linear-gradient(135deg, #8b5cf6, #6366f1);"></div>
+      <div class="link-card-inner">
+        <div class="link-card-glare"></div>
+        <div class="link-card-sheen"></div>
+        <div class="link-card-content">
+          <div class="link-icon" style="background: linear-gradient(135deg, #8b5cf6, #6366f1);">
+            <svg viewBox="0 0 24 24">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+          </div>
+          <div class="link-text">
+            <p class="link-title">University Portal</p>
+            <p class="link-subtitle">Access my university resources</p>
+          </div>
+          <svg class="link-arrow" viewBox="0 0 24 24">
+            <path d="M7 17 17 7" />
+            <path d="M7 7h10v10" />
+          </svg>
+        </div>
+      </div>
+    </a>
+
+    <!-- Save Contact (vCard) -->
+<a href="#" id="vcardBtn" class="link-card">
+  <div class="link-card-glow" style="background: linear-gradient(135deg, #10b981, #059669);"></div>
+  <div class="link-card-inner">
+    <div class="link-card-glare"></div>
+    <div class="link-card-sheen"></div>
+    <div class="link-card-content">
+      <div class="link-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
+        <svg viewBox="0 0 24 24">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+      <div class="link-text">
+        <p class="link-title">Save My Contact</p>
+        <p class="link-subtitle">Add me to your phone contacts</p>
+      </div>
+      <svg class="link-arrow" viewBox="0 0 24 24">
+        <path d="M7 17 17 7" />
+        <path d="M7 7h10v10" />
+      </svg>
+    </div>
+  </div>
+</a>
+
+    <!-- YouTube -->
+    <a href="https://www.youtube.com/@osmosis" target="_blank" rel="noopener noreferrer" class="link-card">
+      <div class="link-card-glow" style="background: linear-gradient(135deg, #f43f5e, #dc2626);"></div>
+      <div class="link-card-inner">
+        <div class="link-card-glare"></div>
+        <div class="link-card-sheen"></div>
+        <div class="link-card-content">
+          <div class="link-icon" style="background: linear-gradient(135deg, #f43f5e, #dc2626);">
+            <svg class="solid" viewBox="0 0 24 24">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </div>
+          <div class="link-text">
+            <p class="link-title">YouTube Channel</p>
+            <p class="link-subtitle">Where i like to wach Midical</p>
+          </div>
+          <svg class="link-arrow" viewBox="0 0 24 24">
+            <path d="M7 17 17 7" />
+            <path d="M7 7h10v10" />
+          </svg>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- Social Section -->
+  <div class="section-title">
+    <span>Follow Me</span>
+  </div>
+
+  <div class="social-grid">
+    <!-- TikTok (fixed color: #fe2c55 + dark shade) -->
+    <a href="https://tiktok.com/@a6267816" target="_blank" rel="noopener noreferrer" class="social-card" style="--brand-c:#fe2c55;">
+      <span class="social-card-glow"></span>
+      <span class="social-icon">
+        <svg class="solid" viewBox="0 0 24 24">
+          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+        </svg>
+      </span>
+      <span class="social-label">TikTok</span>
+    </a>
+    
+    <a href="https://t.me/Marii989s" target="_blank" rel="noopener noreferrer" class="social-card" style="--brand-c:#229ed9;">
+      <span class="social-card-glow"></span>
+      <span class="social-icon">
+        <svg class="solid" viewBox="0 0 24 24">
+          <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+        </svg>
+      </span>
+      <span class="social-label">Telegram</span>
+    </a>
+    <!-- Instagram -->
+    <a href="https://instagram.com/Su.u49" target="_blank" rel="noopener noreferrer" class="social-card" style="--brand-c:#e1306c;">
+      <span class="social-card-glow"></span>
+      <span class="social-icon">
+        <svg viewBox="0 0 24 24">
+          <rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+      </span>
+      <span class="social-label">Instagram</span>
+    </a>
+
+    <!-- Telegram -->
+
+  </div>
+
+  <!-- Copy Page Link -->
+  <div class="copy-wrap">
+    <button class="copy-btn" id="copyBtn">
+      <svg viewBox="0 0 24 24">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+      </svg>
+      <span>Copy Site Link</span>
+    </button>
+  </div>
+
+  <!-- Footer -->
+  <p class="footer">
+    Made with <span class="footer-heart">♥</span> by Falxad Mohamed
+  </p>
+
+</main>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 6 9 17l-5-5"/>
+  </svg>
+  <span id="toastText">Copied!</span>
+</div>
+
+<script>
+/* ============================================================
+   1. THEME STATE
+   ============================================================ */
+const STORAGE_THEME = 'linkbio-theme';
+let currentTheme = localStorage.getItem(STORAGE_THEME) || 'dark';
+
+const html = document.documentElement;
+const themeBtn = document.getElementById('themeBtn');
+const themeIcon = document.getElementById('themeIcon');
+
+function applyTheme(theme) {
+  currentTheme = theme;
+  html.setAttribute('data-theme', theme);
+  localStorage.setItem(STORAGE_THEME, theme);
+
+  const isDark = theme === 'dark';
+
+  themeIcon.innerHTML = isDark
+    ? '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>'
+    : '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>';
+
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute('content', isDark ? '#05050a' : '#f4f4f8');
+}
+
+themeBtn.addEventListener('click', () => {
+  applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+});
+
+/* ============================================================
+   2. COPY EMAIL
+   ============================================================ */
+const emailBtn = document.getElementById('emailBtn');
+const emailText = document.getElementById('emailText');
+const copyIcon = document.getElementById('copyIcon');
+const checkIcon = document.getElementById('checkIcon');
+const EMAIL = 'marianuu453@gmail.com';
+
+emailBtn.addEventListener('click', () => {
+  const done = () => {
+    emailText.textContent = 'Email copied!';
+    copyIcon.style.display = 'none';
+    checkIcon.style.display = 'block';
+    emailBtn.style.borderColor = 'rgba(52, 211, 153, 0.5)';
+    setTimeout(() => {
+      emailText.textContent = 'Copy My Email';
+      copyIcon.style.display = 'block';
+      checkIcon.style.display = 'none';
+      emailBtn.style.borderColor = '';
+    }, 1800);
+  };
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(EMAIL).then(done).catch(() => fallbackCopy(EMAIL, done));
+  } else {
+    fallbackCopy(EMAIL, done);
+  }
+});
+
+function fallbackCopy(text, cb) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+  cb();
+}
+
+/* ============================================================
+   3. COPY LINK + TOAST
+   ============================================================ */
+const copyBtn = document.getElementById('copyBtn');
+const toast = document.getElementById('toast');
+const toastText = document.getElementById('toastText');
+let toastTimer = null;
+
+function showToast(msg) {
+  toastText.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+}
+
+copyBtn.addEventListener('click', (e) => {
+  const rect = copyBtn.getBoundingClientRect();
+  const ripple = document.createElement('span');
+  const size = Math.max(rect.width, rect.height);
+  ripple.className = 'ripple';
+  ripple.style.width = ripple.style.height = size + 'px';
+  ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+  ripple.style.top  = (e.clientY - rect.top  - size / 2) + 'px';
+  copyBtn.appendChild(ripple);
+  setTimeout(() => ripple.remove(), 650);
+
+  const url = window.location.href;
+  const done = () => showToast('Link copied!');
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(done).catch(() => fallbackCopy(url, done));
+  } else {
+    fallbackCopy(url, done);
+  }
+});
+
+/* ============================================================
+   4. FLOATING PARTICLES
+   ============================================================ */
+(function createParticles() {
+  const container = document.getElementById('particles');
+  const count = window.innerWidth < 600 ? 14 : 26;
+
+  for (let i = 0; i < count; i++) {
+    const p = document.createElement('span');
+    p.className = 'particle';
+
+    const colors = ['139,92,246', '6,182,212', '236,72,153', '245,158,11'];
+    const c = colors[i % colors.length];
+    p.style.background = `rgba(${c},0.7)`;
+    p.style.boxShadow = `0 0 8px rgba(${c},0.9)`;
+
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDuration = (12 + Math.random() * 14) + 's';
+    p.style.animationDelay = (-Math.random() * 20) + 's';
+
+    const size = 2 + Math.random() * 3;
+    p.style.width = size + 'px';
+    p.style.height = size + 'px';
+
+    container.appendChild(p);
+  }
+})();
+
+/* ============================================================
+   5. 3D TILT + GLARE ON LINK CARDS
+   ============================================================ */
+(function setupLinkTilt() {
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  document.querySelectorAll('.link-card').forEach(card => {
+    const glare = card.querySelector('.link-card-glare');
+    let rafId = null;
+    let targetX = 0, targetY = 0, currentX = 0, currentY = 0;
+    let glareX = 50, glareY = 50;
+
+    function animate() {
+      currentX += (targetX - currentX) * 0.12;
+      currentY += (targetY - currentY) * 0.12;
+      card.style.transform = `perspective(1000px) rotateX(${currentY}deg) rotateY(${currentX}deg)`;
+      if (glare) {
+        glare.style.background = `radial-gradient(220px circle at ${glareX}% ${glareY}%, rgba(255,255,255,0.18), transparent 70%)`;
+      }
+      rafId = requestAnimationFrame(animate);
+    }
+
+    card.addEventListener('mouseenter', () => {
+      if (!rafId) rafId = requestAnimationFrame(animate);
+    });
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width;
+      const py = (e.clientY - rect.top) / rect.height;
+
+      targetX = (px - 0.5) * 12;
+      targetY = -(py - 0.5) * 12;
+      glareX = px * 100;
+      glareY = py * 100;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      targetX = 0; targetY = 0;
+      glareX = 50; glareY = 50;
+    });
+  });
+})();
+
+/* ============================================================
+   6. TILT ON SOCIAL CARDS
+   ============================================================ */
+(function setupSocialTilt() {
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  document.querySelectorAll('.social-card').forEach(card => {
+    let rafId = null;
+    let tx = 0, ty = 0, cx = 0, cy = 0;
+
+    function animate() {
+      cx += (tx - cx) * 0.15;
+      cy += (ty - cy) * 0.15;
+      card.style.transform = `translateY(${cy}px) rotateX(${-cy * 0.3}deg) rotateY(${cx * 0.4}deg)`;
+      rafId = requestAnimationFrame(animate);
+    }
+
+    card.addEventListener('mouseenter', () => {
+      if (!rafId) rafId = requestAnimationFrame(animate);
+    });
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width - 0.5;
+      const py = (e.clientY - rect.top) / rect.height - 0.5;
+      tx = px * 14;
+      ty = -6 - Math.abs(py) * 4;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      tx = 0; ty = 0;
+    });
+  });
+})();
+
+/* ============================================================
+   7. MAGNETIC CURSOR
+   ============================================================ */
+(function setupCursor() {
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const dot = document.createElement('div');
+  dot.style.cssText = 'position:fixed;top:0;left:0;width:6px;height:6px;border-radius:50%;background:#fff;mix-blend-mode:difference;pointer-events:none;z-index:100;transform:translate(-50%,-50%);transition:width 0.2s,height 0.2s;';
+  document.body.appendChild(dot);
+
+  const ring = document.createElement('div');
+  ring.style.cssText = 'position:fixed;top:0;left:0;width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,0.6);mix-blend-mode:difference;pointer-events:none;z-index:100;transform:translate(-50%,-50%);transition:width 0.25s ease,height 0.25s ease,opacity 0.25s ease;';
+  document.body.appendChild(ring);
+
+  let mx = window.innerWidth / 2;
+  let my = window.innerHeight / 2;
+  let rx = mx, ry = my;
+
+  document.addEventListener('mousemove', (e) => {
+    mx = e.clientX;
+    my = e.clientY;
+    dot.style.left = mx + 'px';
+    dot.style.top = my + 'px';
+  });
+
+  function renderRing() {
+    rx += (mx - rx) * 0.18;
+    ry += (my - ry) * 0.18;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+    requestAnimationFrame(renderRing);
+  }
+  renderRing();
+
+  document.addEventListener('mouseover', (e) => {
+    const t = e.target;
+    const isInteractive = t.closest('a, button, [data-cursor="hover"]');
+    if (isInteractive) {
+      ring.style.width = '52px';
+      ring.style.height = '52px';
+      ring.style.opacity = '1';
+    } else {
+      ring.style.width = '28px';
+      ring.style.height = '28px';
+      ring.style.opacity = '0.6';
+    }
+  });
+
+  document.documentElement.style.cursor = 'none';
+  document.body.style.cursor = 'none';
+  const styleEl = document.createElement('style');
+  styleEl.textContent = 'a, button, [data-cursor="hover"] { cursor: none !important; }';
+  document.head.appendChild(styleEl);
+})();
+
+/* ============================================================
+   8. INIT
+   ============================================================ */
+applyTheme(currentTheme);
+
+/* ============================================================
+   9. DOWNLOAD vCARD (Save Contact)
+   ============================================================ */
+   (function setupVCard() {
+  const vcardBtn = document.getElementById('vcardBtn');
+  if (!vcardBtn) return;
+
+  // ✏️ عدّل بياناتك هون
+  const contact = {
+    firstName: 'Falxad',
+    lastName: 'Mohamed',
+    phone: '+252618968849',
+    email: 'marianuu453@gmail.com',
+    org: 'Somali National University',
+    title: 'Medical Student',
+    website: window.location.href
+  };
+
+  vcardBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    // بناء محتوى ملف vCard
+    const vcard = [
+      'BEGIN:VCARD',
+      'VERSION:3.0',
+      `N:${contact.lastName};${contact.firstName};;;`,
+      `FN:${contact.firstName} ${contact.lastName}`,
+      `ORG:${contact.org}`,
+      `TITLE:${contact.title}`,
+      `TEL;TYPE=CELL,VOICE:${contact.phone}`,
+      `EMAIL;TYPE=INTERNET:${contact.email}`,
+      `URL:${contact.website}`,
+      'END:VCARD'
+    ].join('\r\n');
+
+    // إنشاء ملف Blob وتحميله
+    const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${contact.firstName}-${contact.lastName}.vcf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // تنظيف
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+
+    // إظهار toast تأكيد
+    showToast('Contact downloaded!');
+  });
+})();
+
+</script>
+
+</body>
+</html>
